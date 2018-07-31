@@ -14,22 +14,27 @@ function missingNumbers(arr, brr) {
   let allNums = new Set(arr.concat(brr));
   let counter = {};
   let result = [];
-  
-  Array.from(allNums).forEach(val = > counter[val] = 0);
 
-  for(let i = 0; i < arr.length; i++) {
+  Array.from(allNums).forEach(val => (counter[val] = 0));
+
+  for (let i = 0; i < arr.length; i++) {
     counter[arr[i]]++;
   }
 
-  for(let j = 0; j < brr.length; j++) {
+  for (let j = 0; j < brr.length; j++) {
     counter[brr[j]]--;
   }
 
-  for(let key in counter) {
-    if(counter[key] !== 0) {
+  for (let key in counter) {
+    if (counter[key] !== 0) {
       result.push(key);
     }
   }
 
   return result;
 }
+
+let arr = [203, 204, 205, 206, 207, 208, 203, 204, 205, 206];
+let brr = [203, 204, 204, 205, 206, 207, 205, 208, 203, 206, 205, 206, 204];
+
+missingNumbers(arr, brr);
