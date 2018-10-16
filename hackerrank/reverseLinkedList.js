@@ -16,3 +16,16 @@ function reverse(head) {
   }
   return prevNode;
 }
+
+// time: O(n) where n is the list's length.
+// space: O(1)
+
+// recursive solution
+function reverseRecursion(head) {
+  if (head === null || head.next === null) return head;
+
+  let curr = reverseRecursion(head.next);
+  head.next.next = head;
+  head.next = null;
+  return curr;
+}

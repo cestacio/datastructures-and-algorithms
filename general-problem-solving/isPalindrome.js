@@ -20,3 +20,4 @@ function isPalindrome(message) {
 }
 
 isPalindrome('kayak'); // true
+isPalindrome('tree'); // false
