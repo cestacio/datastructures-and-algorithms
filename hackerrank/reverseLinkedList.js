@@ -20,6 +20,8 @@ function reverse(head) {
 // time: O(n) where n is the list's length.
 // space: O(1)
 
+// *******************
+
 // recursive solution
 function reverseRecursion(head) {
   if (head === null || head.next === null) return head;
@@ -29,3 +31,6 @@ function reverseRecursion(head) {
   head.next = null;
   return curr;
 }
+
+// time: O(n) where in is the list's length
+// space: O(n) where the recursion can go n levels deep.
