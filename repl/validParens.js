@@ -9,6 +9,8 @@ Note that an empty string is also considered valid.
 */
 
 function validParens(str) {
+  if (str.length % 2 !== 0) return false;
+
   const stack = [];
 
   const pairs = {
@@ -20,7 +22,7 @@ function validParens(str) {
   for (let char of str) {
     if (char in pairs) {
       stack.push(pairs[char]);
-    } else if (stack.length === 0 || stack.pop() !== char) {
+    } else if (stack.pop() !== char) {
       return false;
     }
   }
@@ -29,7 +31,7 @@ function validParens(str) {
 
 // validParens(''); // true
 // validParens('()'); // true
-// validParens('()[]{}'); // true
+validParens('()[]{}'); // true
 // validParens('(]'); // false
 // validParens('([)]'); // false
 // validParens('{[]}'); // true
